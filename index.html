@@ -85,23 +85,6 @@
         </span>
         <script>
             
-            var hue;
-            var sat;
-            var con;
-            
-            function loadColors() {
-                var ck = document.cookie.split("; ");
-                
-                changeHue(getCookie('hue'));
-                changeSat(getCookie('sat'));
-                changeCon(getCookie('con'));
-                
-                document.getElementsByTagName("input")[0].value = getCookie('hue');
-                document.getElementsByTagName("input")[1].value = getCookie('sat');
-                document.getElementsByTagName("input")[2].value = getCookie('con');
-                
-            }
-            
             function getCookie(name) {
                 var value = "; " + document.cookie;
                 var parts = value.split("; " + name + "=");
@@ -112,31 +95,16 @@
                 document.cookie = name + "=" + value + "; path=/";
             }
             
-            function changeHue(value){
-                setCookie('hue', value);
-                document.getElementsByTagName("body")[0].style.webkitFilter = "hue-rotate("+value+"deg)";
-            }
-            
-            function changeSat(value){
-                setCookie('sat', value);
-                document.getElementsByTagName("html")[0].style.webkitFilter = "saturate("+value+"%)";
-            }
-            
-            function changeCon(value){
-                setCookie('con', value);
-                document.getElementsByTagName("span")[0].style.webkitFilter = "contrast("+value+"%)";
-            }
-            
             function showMain() {
-                document.getElementById("one").style.border = "3px solid #43FDCA";
-                document.getElementById("two").style.border = "3px solid #EFCBA7";
+                document.getElementById("one").style.border = "3px solid #bf4080";
+                document.getElementById("two").style.border = "3px solid #bf4080";
                 document.getElementById("main").style.display = "inline";
                 document.getElementById("second").style.display = "none";
             }
             
             function showSecond() {
                 document.getElementById("one").style.border = "3px solid #EFCBA7";
-                document.getElementById("two").style.border = "3px solid #43FDCA";
+                document.getElementById("two").style.border = "3px solid #bf4080";
                 document.getElementById("main").style.display = "none";
                 document.getElementById("second").style.display = "inline";   
             }
