@@ -1,0 +1,148 @@
+<html>
+    
+    <head>
+        
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+        <title>StartPage</title>
+        
+    </head>
+    
+    <body onload="loadColors();">
+        
+        <span>
+                    
+            <div class="container" id="main">
+                <div class="category" style="height: 0px;">
+                
+                </div>
+
+                <div class="category" >
+
+                    <h3>Social</h3>
+
+                    <a href="https://facebook.com/">facebook</a>
+                    <a href="https://twitter.com/">twitter</a>
+                    <a href="https://discordapp.com/channels/@me">discord</a>
+                    <a hred="https://instagram.com">Instagram</a>
+
+                </div>
+
+                <div class="category">
+
+                    <h3>Musica</h3>
+
+                    <a href="https://soundcloud.com/">soundcloud</a>
+                    <a href="https://youtube.com/">Youtube</a>
+                    <a href="https://www.youtube.com/watch?v=bebuiaSKtU4">Lo-Fi Hip Hop</a>
+                </div>
+
+                <div class="category">
+                    <h3>Utiles</h3>
+
+                    <a href="https://drive.google.com/drive/?utm_source=es&pli=1">Google Drive</a>
+                    <a href="https://mail.google.com/mail/u/0/">Mail</a>
+                    <a href="https://stackoverflow.com/">stack overflow</a>
+                </div>
+
+
+            </div>
+
+            <div class="container" id="second" style="display:none;">
+
+                <div class="category" style="height: 0px;">
+
+                </div>
+
+                <div class="category">
+
+                    <h3>Lagash</h3>
+
+                    <a href="https://gitlab.lagash.com">Gitlab</a>
+                    <a href="https://workplace.facebook.com">Workplace</a>
+                    <a href="https://open.spotify.com/user/11120729770/playlist/5amwp18RvhENTyvfjbxMjW?si=rLDUW1gtQI2AWoHd1b3__g">Lista de Spotify</a>
+                </div>
+
+                <div class="category">
+
+                    <h3>Mi basura</h3>
+                    
+                    <a href="https://github.com">Github</a>
+                    <a href="https://soundcloud.com/user-817512691">Mi SC</a>
+
+                </div>
+
+                <div class="category">
+                    <h3>Good Info</h3>
+                    
+                    <a href="https://wiki.archlinux.org">Arch Wiki</a>
+                    <a href="https://the-awesome-git-cheat-sheet.com">Cheat Git</a>
+                </div>
+            </div>
+
+            <label id="one" onclick="showMain();"></label>
+            <label id="two" onclick="showSecond();"></label>
+        </span>
+        <script>
+            
+            var hue;
+            var sat;
+            var con;
+            
+            function loadColors() {
+                var ck = document.cookie.split("; ");
+                
+                changeHue(getCookie('hue'));
+                changeSat(getCookie('sat'));
+                changeCon(getCookie('con'));
+                
+                document.getElementsByTagName("input")[0].value = getCookie('hue');
+                document.getElementsByTagName("input")[1].value = getCookie('sat');
+                document.getElementsByTagName("input")[2].value = getCookie('con');
+                
+            }
+            
+            function getCookie(name) {
+                var value = "; " + document.cookie;
+                var parts = value.split("; " + name + "=");
+                if (parts.length == 2) return parts.pop().split(";").shift();
+            }
+            
+            function setCookie(name, value) {
+                document.cookie = name + "=" + value + "; path=/";
+            }
+            
+            function changeHue(value){
+                setCookie('hue', value);
+                document.getElementsByTagName("body")[0].style.webkitFilter = "hue-rotate("+value+"deg)";
+            }
+            
+            function changeSat(value){
+                setCookie('sat', value);
+                document.getElementsByTagName("html")[0].style.webkitFilter = "saturate("+value+"%)";
+            }
+            
+            function changeCon(value){
+                setCookie('con', value);
+                document.getElementsByTagName("span")[0].style.webkitFilter = "contrast("+value+"%)";
+            }
+            
+            function showMain() {
+                document.getElementById("one").style.border = "3px solid #43FDCA";
+                document.getElementById("two").style.border = "3px solid #EFCBA7";
+                document.getElementById("main").style.display = "inline";
+                document.getElementById("second").style.display = "none";
+            }
+            
+            function showSecond() {
+                document.getElementById("one").style.border = "3px solid #EFCBA7";
+                document.getElementById("two").style.border = "3px solid #43FDCA";
+                document.getElementById("main").style.display = "none";
+                document.getElementById("second").style.display = "inline";   
+            }
+            
+        </script>
+        
+    </body>
+    
+</html>
