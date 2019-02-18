@@ -13,6 +13,9 @@ span {
     height: 100%;
     width: 100%;
     background-image: url(mow.png);
+    /* background-position-x: center;
+    background-position-y: center;
+    background-size: 70%; */
 }
 
 h1, h2 {
@@ -78,13 +81,13 @@ h3 {
     top: 0px;
     left: 0px;
     height: calc(100% - 20px);
-    width: calc((100% - 120px) / 5);
+    width: calc((100% - 20px) / 5);
     margin: 10px;
     box-shadow: 0px 0px 15px black;
 }
 
 .category:nth-child(1) {
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
 a {
